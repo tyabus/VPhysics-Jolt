@@ -14,9 +14,9 @@ $Project "joltphysics_sse42"
 	"vphysics_jolt/joltphysics/joltphysics_sse42.vpc"
 }
 
-$Project "joltphysics_sse2"
+$Project "joltphysics_sse41"
 {
-	"vphysics_jolt/joltphysics/joltphysics_sse2.vpc"
+	"vphysics_jolt/joltphysics/joltphysics_sse41.vpc"
 }
 
 $Project "vphysics_jolt_avx2"
@@ -29,9 +29,9 @@ $Project "vphysics_jolt_sse42"
 	"vphysics_jolt/vphysics_jolt/vphysics_jolt_sse42.vpc"
 }
 
-$Project "vphysics_jolt_sse2"
+$Project "vphysics_jolt_sse41"
 {
-	"vphysics_jolt/vphysics_jolt/vphysics_jolt_sse2.vpc"
+	"vphysics_jolt/vphysics_jolt/vphysics_jolt_sse41.vpc"
 }
 
 $Project "vphysics_wrapper_internal"

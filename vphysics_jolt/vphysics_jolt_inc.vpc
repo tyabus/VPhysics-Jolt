@@ -162,7 +162,7 @@ $Project "$PROJNAME"
 	{
 		$Lib	"joltphysics_avx2"		[$VOLT_AVX2]
 		$Lib	"joltphysics_sse42"		[$VOLT_SSE42]
-		$Lib	"joltphysics_sse2"		[$VOLT_SSE2]
+		$Lib	"joltphysics_sse41"		[$VOLT_SSE41]
 		$Lib	"mathlib"
 		$Lib	"tier2"
 	}

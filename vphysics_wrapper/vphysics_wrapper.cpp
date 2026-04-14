@@ -63,6 +63,7 @@ EXPOSE_SINGLE_INTERFACE_GLOBALVAR( PhysicsWrapper, IPhysics, VPHYSICS_INTERFACE_
 enum CPULevel_t
 {
 	CPU_HAS_SSE2,
+	CPU_HAS_SSE41,
 	CPU_HAS_SSE42,
 	CPU_HAS_AVX2,
 };
@@ -94,8 +95,11 @@ static CPULevel_t GetCPULevel()
 	{
 		GetCPUID( cpuInfo, 1, 0 ); // Call function 1
 		bool hasSSE42 = cpuInfo[2] & ( 1 << 20 ); // 20 is the SSE42 bit
+		bool hasSSE41 = cpuInfo[2] & (1 << 19); // 19 is the SSE42 bit
 		if ( hasSSE42 )
 			cpuLevel = CPU_HAS_SSE42;
+		else if ( hasSSE41 )
+			cpuLevel = CPU_HAS_SSE41;
 	}
 
 	return cpuLevel;
@@ -107,7 +111,8 @@ static const char *GetModuleFromCPULevel( CPULevel_t level )
 	{
 		case CPU_HAS_AVX2:		return "vphysics_jolt_avx2" DLL_EXT_STRING;
 		case CPU_HAS_SSE42:		return "vphysics_jolt_sse42" DLL_EXT_STRING;
-		default:				return "vphysics_jolt_sse2" DLL_EXT_STRING;
+		case CPU_HAS_SSE41:		return "vphysics_jolt_sse41" DLL_EXT_STRING;
+		default:				return "vphysics_jolt_sse41" DLL_EXT_STRING; // still lets try to load SSE4.1 binary
 	}
 }
 
